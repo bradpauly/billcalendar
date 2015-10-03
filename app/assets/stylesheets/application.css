@@ -41,9 +41,23 @@ div.validation-hint {
 }
 
 div.notice {
-	padding: 1.0rem 0;
-	margin-bottom: 1.0rem;
-	/*border: 1px solid #C34949;*/
-	color: #C34949;
-	
+  padding: 1.0rem 0;
+  margin-bottom: 1.0rem;
+  /*border: 1px solid #C34949;*/
+  color: #C34949;
+}
+
+table.due_day {
+  margin-bottom: 1.0rem;
+}
+table.due_day td {
+  padding: 15px 0;
+  text-align: center;
+}
+table.due_day td.selected {
+  background: #33C3F0;
+  color: #fff;
+}
+table.due_day td.selected a {
+  color: #fff;
 }

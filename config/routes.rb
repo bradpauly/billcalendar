@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   match '/login', to: 'sessions#new', via: [:get]
 
   get "/logout", to: "sessions#destroy", as: "logout"
+  get "/calendar/:token", to: "calendar#index", as: "calendar"
+
+  resources :bills
 
   root to: "registrations#new"
 end

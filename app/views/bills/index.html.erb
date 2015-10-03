@@ -1,0 +1,21 @@
+<%= link_to 'calendar', calendar_url(token: current_user.calendar_token) %>
+
+
+<table class="u-full-width">
+  <thead>
+    <tr>
+      <th>Due on</th>
+      <th>Bill</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.due_day %></td>
+        <td><%= bill.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Add a new bill', new_bill_url, class: "button button-primary" %>

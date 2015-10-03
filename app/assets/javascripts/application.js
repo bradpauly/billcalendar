@@ -12,5 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('table.due_day a').on('click', function(){
+    $('#bill_due_day').val($(this).html())
+    $('table.due_day td').removeClass('selected')
+    $(this).closest('td').addClass('selected')
+    return false;
+  })
+});

@@ -1,0 +1,2 @@
+<% # NOTE: html_safe because ERB converts & to &amp; %>
+<%= strip_tags(@calendar.to_ical).html_safe %>

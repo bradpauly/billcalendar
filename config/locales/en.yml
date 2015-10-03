@@ -33,7 +33,12 @@ en:
               invalid: "Email must contain an '@' i.e.: pat@example.com"
             password:
               blank: Please enter a password
-
+        bill:
+          attributes:
+            name:
+              blank: Please enter a name for this bill
+            due_day:
+              blank: A due day is required
   helpers:
     placeholder:
       registration_form:

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :email, format: /@/
 
+  has_many :passphrases
   has_many :bills
 
   before_create :generate_calendar_token

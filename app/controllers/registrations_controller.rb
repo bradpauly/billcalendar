@@ -7,7 +7,7 @@ class RegistrationsController < ApplicationController
     @registration_form = RegistrationForm.new(params[:registration_form])
     if @registration_form.save
       start_session(@registration_form.user)
-      redirect_to '/'
+      redirect_to bills_url
     else
       render :new
     end

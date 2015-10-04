@@ -1,5 +1,6 @@
 class BillsController < ApplicationController
   def index
+    @today = Date.today
     @bills = current_user.bills.order(due_day: 'ASC')
   end
 

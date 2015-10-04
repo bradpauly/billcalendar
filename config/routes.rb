@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   resources :bills
 
-  root to: "registrations#new"
+  root to: "home#index"
 end

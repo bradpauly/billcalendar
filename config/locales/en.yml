@@ -56,7 +56,7 @@ en:
         remember_me: Remember me yo
     submit:
       registration_form:
-        create: Build your calendar
+        create: Stop missing payments
       login_form:
         create: Log in
 

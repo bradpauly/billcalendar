@@ -1,17 +1,26 @@
-<%= link_to 'Add a new bill', new_bill_url, class: "button button-primary" %>
+<%= link_to 'Calendar.ics', calendar_url(token: current_user.calendar_token, format: 'ics'), class: 'button u-pull-right' %>
+
+<h3><%= Date::MONTHNAMES[Date.today.month] %> <%= Date.today.year %> Bills</h3>
 
 <table class="u-full-width">
   <thead>
     <tr>
-      <th>Due on</th>
       <th>Bill</th>
+      <th>Due</th>
     </tr>
   </thead>
   <tbody>
     <% @bills.each do |bill| %>
+      <% if bill.due_day > @today.day && !@marked %>
+        <tr class="today">
+          <td>Today</td>
+          <td><%= @today.day.ordinalize %></td>
+        </tr>
+        <% @marked = true %>
+      <% end %>
       <tr>
-        <td><%= bill.due_day %></td>
         <td><%= link_to bill.name, edit_bill_url(bill) %></td>
+        <td><%= bill.due_day.ordinalize %></td>
       </tr>
     <% end %>
   </tbody>
@@ -19,3 +28,5 @@
 
 <strong>Subscribe to your bills in Google calendar, iCal, etc.</strong>
 <%= text_field_tag('icalendar_url', calendar_url(token: current_user.calendar_token, format: 'ics'), readonly: true, class: "u-full-width" ) %>
+
+<%= link_to 'Add a new bill', new_bill_url, class: "button button-primary u-full-width" %>

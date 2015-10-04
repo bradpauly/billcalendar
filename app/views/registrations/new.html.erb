@@ -1,17 +1,3 @@
 <div class="registration-box">
-  <%= form_for @registration_form, url: register_path do |form| %>
-    <%= form.label :user_name %>
-    <%= form.text_field :user_name, class: "u-full-width", placeholder: true %>
-    <%= error_message_tag(@registration_form.errors[:user_name]) %>
-
-    <%= form.label :user_email %>
-    <%= form.text_field :user_email, class: "u-full-width", placeholder: true %>
-    <%= error_message_tag(@registration_form.errors[:user_email]) %>
-
-    <%= form.label :user_password %>
-    <%= form.password_field :user_password, class: "u-full-width", placeholder: true %>
-    <%= error_message_tag(@registration_form.errors[:user_password]) %>
-
-    <%= form.submit class: "button-primary u-full-width" %>
-  <% end %>
+  <%= render partial: 'form' %>
 </div>

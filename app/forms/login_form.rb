@@ -3,11 +3,7 @@ class LoginForm < ActiveForm::Form
 
   def authenticate
     if user = User.find_by_email(email)
-      if user.passphrases.last.try(:authenticate, password)
-        return user
-      else
-        false
-      end
+      user.authenticate(password)
     else
       false
     end

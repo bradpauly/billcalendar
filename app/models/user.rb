@@ -9,6 +9,14 @@ class User < ActiveRecord::Base
 
   before_create :generate_calendar_token
 
+  def authenticate(password)
+    if passphrases.last.try(:authenticate, password)
+      self
+    else
+      false
+    end
+  end
+
   def refresh_calendar_token
     generate_calendar_token
     save

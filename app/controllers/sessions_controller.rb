@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
     if user = @login_form.authenticate
       start_session(user)
-      redirect_to '/'
+      redirect_to bills_url
     else
       flash.now[:notice] = t('flash.login.failed')
       render :new

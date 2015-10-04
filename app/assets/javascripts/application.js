@@ -21,4 +21,8 @@ $(function() {
     $(this).closest('td').addClass('selected')
     return false;
   })
+
+  $('#icalendar_url').on('click', function(){
+    $(this).select()
+  })
 });

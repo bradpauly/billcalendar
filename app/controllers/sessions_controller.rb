@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
-    @login_form = LoginForm.new(remember_me: true)
+    @login_form = LoginForm.new
   end
 
   def create

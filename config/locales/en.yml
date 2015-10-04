@@ -31,8 +31,10 @@ en:
               blank: An email address is required
               taken: Email is already registered
               invalid: "Email must contain an '@' i.e.: pat@example.com"
+        passphrase:
+          attributes:
             password:
-              blank: Please enter a password
+                blank: Please enter a password
         bill:
           attributes:
             name:
@@ -44,12 +46,12 @@ en:
       registration_form:
         user_name: Emma Neu
         user_email: emma.neu@example.com
-        user_password: Mash the keyboard a few times
+        passphrase_password: Mash the keyboard a few times
     label:
       registration_form:
         user_name: Your name
         user_email: Email
-        user_password: Password
+        passphrase_password: Password
       login_form:
         email: Email
         password: Password

@@ -7,9 +7,9 @@
   <%= form.text_field :user_email, class: "u-full-width", placeholder: true %>
   <%= error_message_tag(@registration_form.errors[:user_email]) %>
 
-  <%= form.label :user_password %>
-  <%= form.password_field :user_password, class: "u-full-width", placeholder: true %>
-  <%= error_message_tag(@registration_form.errors[:user_password]) %>
+  <%= form.label :passphrase_password %>
+  <%= form.password_field :passphrase_password, class: "u-full-width", placeholder: true %>
+  <%= error_message_tag(@registration_form.errors[:passphrase_password]) %>
 
   <%= form.submit class: "button-primary u-full-width" %>
 <% end %>

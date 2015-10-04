@@ -56,6 +56,9 @@ tr.today {
   background: #33C3F0;
   color: #fff;
 }
+tr.today td {
+  padding-left:15px;
+}
 
 .text-centered {
   text-align: center;

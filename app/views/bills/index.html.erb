@@ -1,4 +1,4 @@
-<%= link_to 'Calendar.ics', calendar_url(token: current_user.calendar_token, format: 'ics'), class: 'button u-pull-right' %>
+<%= link_to 'Add to your calendar', calendar_url(token: current_user.calendar_token, format: 'ics', protocol: 'webcal'), class: 'button u-pull-right' %>
 
 <h3><%= Date::MONTHNAMES[Date.today.month] %> <%= Date.today.year %> Bills</h3>
 
@@ -11,12 +11,12 @@
   </thead>
   <tbody>
     <% @bills.each do |bill| %>
-      <% if bill.due_day > @today.day && !@marked %>
+      <% if bill.due_day > @today.day && !@future %>
         <tr class="today">
           <td>Today</td>
           <td><%= @today.day.ordinalize %></td>
         </tr>
-        <% @marked = true %>
+        <% @future = true %>
       <% end %>
       <tr>
         <td><%= link_to bill.name, edit_bill_url(bill) %></td>

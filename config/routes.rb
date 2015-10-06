@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy", as: "logout"
   get "/calendar/:token", to: "calendar#index", as: "calendar"
 
+  get '/auth/:provider/callback', to: 'external_authentications#create'
+
   resources :bills
 
   root to: "home#index"

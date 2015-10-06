@@ -1,6 +1,11 @@
-<%= link_to 'Add to your calendar', calendar_url(token: current_user.calendar_token, format: 'ics', protocol: 'webcal'), class: 'button u-pull-right' %>
+<div class="row">
+  <div class="one-half column">
+    <h3><%= Date::MONTHNAMES[Date.today.month] %> <%= Date.today.year %> Bills</h3>  </div>
+  <div class="one-half column">
+    <%= link_to 'Add to your calendar', calendar_url(token: current_user.calendar_token, format: 'ics', protocol: 'webcal'), class: 'button u-full-width xu-pull-right' %>
+  </div>
+</div>
 
-<h3><%= Date::MONTHNAMES[Date.today.month] %> <%= Date.today.year %> Bills</h3>
 
 <table class="u-full-width">
   <thead>

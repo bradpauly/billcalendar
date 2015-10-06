@@ -1,0 +1,12 @@
+default: &default
+  api_key: <%= ENV['TWITTER_API_KEY'] %>
+  api_secret: <%= ENV['TWITTER_API_SECRET'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

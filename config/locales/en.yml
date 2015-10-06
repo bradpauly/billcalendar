@@ -41,11 +41,12 @@ en:
               blank: Please enter a name for this bill
             due_day:
               blank: A due day is required
+
   helpers:
     placeholder:
       registration_form:
-        user_name: Emma Neu
-        user_email: emma.neu@example.com
+        user_name: Jim Morrison
+        user_email: hello@example.com
         passphrase_password: Mash the keyboard a few times
     label:
       registration_form:
@@ -65,3 +66,8 @@ en:
   flash:
     login:
       failed: Sorry, that email & password combination didn't work.
+
+  buttons:
+    signin:
+      twitter: Sign in with Twitter
+      facebook: Sign in with Facebook

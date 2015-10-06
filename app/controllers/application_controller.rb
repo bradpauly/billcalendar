@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    @current_user ||= User.where(id: session[:user_id]).first
+    @current_user ||= User.find_by(id: session[:user_id])
   end
 
   def start_session(user)
     session[:user_id] = user.id
   end
 
-  def destroy_session
+  def end_session
     reset_session
   end
 end

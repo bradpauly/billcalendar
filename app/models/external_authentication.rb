@@ -10,15 +10,18 @@ class ExternalAuthentication < ActiveRecord::Base
     if external_authentication = self.find_by(uid: uid, provider: provider)
       external_authentication.user
     else
-      external_authentication = self.create(uid: uid, provider: provider)
-      user = provider_authentication(provider).user(info)
-      external_authentication.update_attribute(:user_id, user.id)
-      user
+      new_user = nil
+      ActiveRecord::Base.transaction do
+        external_authentication = self.create(uid: uid, provider: provider)
+        new_user = provider_authentication(provider).user(info)
+        external_authentication.update_attribute(:user_id, new_user.id)
+      end
+      new_user
     end
   end
 
 private
   def self.provider_authentication(provider)
-    "#{provider.capitalize}Authentication".constantize.new
+    "#{provider.camelize}Authentication".constantize.new
   end
 end

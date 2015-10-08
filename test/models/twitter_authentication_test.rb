@@ -5,7 +5,7 @@ class TwitterAuthenticationTest < ActiveSupport::TestCase
     info = {'name' => 'Joe', 'nickname' => 'joejoe'}
     user = TwitterAuthentication.new.user(info)
     assert user.is_a?(User)
-    assert_equal user.email, info['nickname']
+    assert_equal user.email, "@#{info['nickname']}"
     assert_equal user.name, info['name']
   end
 end

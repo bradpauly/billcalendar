@@ -6,7 +6,7 @@ class ExternalAuthenticationsController < ApplicationController
       info: auth_hash['info']
     )
     start_session(user)
-    redirect_to bills_url
+    redirect_to new_bill_url
   end
 
 protected

@@ -1,16 +1,31 @@
+<h3>Stop missing payments</h3>
+
 <div class="row">
   <div class="one-half column">
-    <h3>Stop missing payments</h3>
+    <p>
+      According to the 2015 Consumer Financial Literacy Survey about
+      <strong class="hilite">25% of U.S. adults do not pay bills on time.</strong>
+    </p>
 
-    <p>According to the 2015 Consumer Financial Literacy Survey of Adults about
-    25% of U.S. adults do not pay bills on time.</p>
+    <p>
+      Missing a credit card payment can cost you money.
+      What happens if you miss a credit card payment?
+    </p>
 
-    <p>You can also create a calendar by signing in with Twitter or Google.</p>
-    <%= link_to 'Sign in with Twitter', '/auth/twitter', class:'button u-full-width' %>
-    <%= link_to 'Sign in with Google', '/auth/google', class:'button u-full-width' %>
+    <ul>
+      <li>You could be <strong>charged a late fee</strong> (typically $25 - $35)</li>
+      <li>Your <strong>interest rate could go up</strong> (sometimes to 29.99%)</li>
+      <li>You could <strong>lose a 0% APR promotional rate</strong></li>
+      <li>If you miss too many it could <strong>lower your credit score</strong></li>
+    </ul>
   </div>
 
   <div class="one-half column">
     <%= render partial: 'registrations/form' %>
+
+    <p>You can also create a calendar by logging in with Twitter or Google.</p>
+
+    <%= link_to 'Log in with Twitter', '/auth/twitter', class:'button u-full-width' %>
+    <%= link_to 'Log in with Google', '/auth/google', class:'button u-full-width' %>
   </div>
 </div>

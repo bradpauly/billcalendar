@@ -68,6 +68,6 @@ en:
       failed: Sorry, that email & password combination didn't work.
 
   buttons:
-    signin:
-      twitter: Sign in with Twitter
-      facebook: Sign in with Facebook
+    login:
+      twitter: Log in with Twitter
+      facebook: Log in with Facebook

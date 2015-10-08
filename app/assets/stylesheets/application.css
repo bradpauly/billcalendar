@@ -7,12 +7,12 @@ body {
   color:#444;
 }
 
-div.container {
-}
-
 div.header {
   padding-top: 1rem;
   margin-bottom: 3rem;
+}
+div.header a {
+  margin: 0 0.4rem;
 }
 
 div.registration-box, div.login-box {
@@ -67,4 +67,13 @@ tr.today td {
 footer {
   text-align: center;
   margin-top: 4rem;
+}
+
+.instructions {
+  margin-top: 2rem;
+}
+
+.hilite {
+  background-color: #ffc;
+  padding:0 3px;
 }

@@ -1,37 +1,42 @@
+<h3><%= Date::MONTHNAMES[Date.today.month] %> <%= Date.today.year %> Bills</h3>
+
 <div class="row">
   <div class="one-half column">
-    <h3><%= Date::MONTHNAMES[Date.today.month] %> <%= Date.today.year %> Bills</h3>  </div>
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>Bill</th>
+          <th>Due</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bills.each do |bill| %>
+          <% if bill.due_day > @today.day && !@future %>
+            <tr class="today">
+              <td>Today</td>
+              <td><%= @today.day.ordinalize %></td>
+            </tr>
+            <% @future = true %>
+          <% end %>
+          <tr>
+            <td><%= link_to bill.name, edit_bill_url(bill) %></td>
+            <td><%= bill.due_day.ordinalize %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to 'Add a new bill', new_bill_url, class: "button button-primary u-full-width" %>
+  </div>
+
   <div class="one-half column">
-    <%= link_to 'Add to your calendar', calendar_url(token: current_user.calendar_token, format: 'ics', protocol: 'webcal'), class: 'button u-full-width xu-pull-right' %>
+    <p>
+      <strong>Add to your calendar:</strong>
+      Subscribe to your bills in Google Calendar, Apple Calendar or any calendar that
+      supports the iCalendar format by clicking the button below or copying the url into
+      your calendar of choice.
+    </p>
+    <%= link_to 'Add to your calendar', calendar_url(token: current_user.calendar_token, format: 'ics', protocol: 'webcal'), class: 'button u-full-width' %>
+    <%= text_field_tag('icalendar_url', calendar_url(token: current_user.calendar_token, format: 'ics'), readonly: true, class: "u-full-width" ) %>
   </div>
 </div>
-
-
-<table class="u-full-width">
-  <thead>
-    <tr>
-      <th>Bill</th>
-      <th>Due</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @bills.each do |bill| %>
-      <% if bill.due_day > @today.day && !@future %>
-        <tr class="today">
-          <td>Today</td>
-          <td><%= @today.day.ordinalize %></td>
-        </tr>
-        <% @future = true %>
-      <% end %>
-      <tr>
-        <td><%= link_to bill.name, edit_bill_url(bill) %></td>
-        <td><%= bill.due_day.ordinalize %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<strong>Subscribe to your bills in Google calendar, iCal, etc.</strong>
-<%= text_field_tag('icalendar_url', calendar_url(token: current_user.calendar_token, format: 'ics'), readonly: true, class: "u-full-width" ) %>
-
-<%= link_to 'Add a new bill', new_bill_url, class: "button button-primary u-full-width" %>

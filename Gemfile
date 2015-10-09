@@ -12,6 +12,10 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
+group :production, do
+  gem 'thin'
+end
+
 group :development, :test do
   gem 'byebug'
 end

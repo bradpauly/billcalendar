@@ -12,7 +12,7 @@ gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-google-oauth2'
 
-group :production, do
+group :production do
   gem 'thin'
 end
 

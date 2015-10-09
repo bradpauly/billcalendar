@@ -7,13 +7,13 @@ class BillIcalendarTest < ActiveSupport::TestCase
   end
 
   test "to_ical return icalendar format text" do
-    calendar = BillIcalendar.new(@jim, [])
+    calendar = BillIcalendar.new([], @jim.created_at)
     assert_match /BEGIN:VCALENDAR/, calendar.to_ical
     assert_match /END:VCALENDAR/, calendar.to_ical
   end
 
   test "to_ical adds bills as events in icalendar format" do
-    calendar = BillIcalendar.new(@jim, @bills)
+    calendar = BillIcalendar.new(@bills, @jim.created_at)
     bill = @bills.last
     assert_match /BEGIN:VEVENT/, calendar.to_ical
     assert_match /SUMMARY:#{bill.name}/, calendar.to_ical

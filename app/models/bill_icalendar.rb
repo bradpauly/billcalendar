@@ -1,9 +1,8 @@
 class BillIcalendar
-  def initialize(user, bills)
-    @user  = user
+  def initialize(bills, start_date, end_date = Date.today + 1.year)
+    @start_date = start_date
+    @end_date = end_date
     @bills = bills
-    @start_date = @user.created_at
-    @end_date = Date.today + 1.year
     @icalendar = Icalendar::Calendar.new
   end
 

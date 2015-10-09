@@ -1,7 +1,9 @@
 class BillsController < ApplicationController
+  before_filter :check_authorization
+
   def index
     @today = Date.today
-    @bills = current_user.bills.order(due_day: 'ASC')
+    @bills = current_user.bills.by_due_day
   end
 
   def new

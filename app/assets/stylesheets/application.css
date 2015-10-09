@@ -53,8 +53,8 @@ table.due_day td.selected a {
 }
 
 tr.today {
-  background: #33C3F0;
-  color: #fff;
+  background: #ffc;
+  color: #999;
 }
 tr.today td {
   padding-left:15px;

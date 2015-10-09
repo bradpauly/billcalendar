@@ -16,4 +16,10 @@ class ApplicationController < ActionController::Base
   def end_session
     reset_session
   end
+
+  def check_authorization
+    unless current_user
+      redirect_to login_url
+    end
+  end
 end

@@ -15,6 +15,7 @@ module ActiveForm
       end
     end
 
+  private
     def process
       self.class.model_names.map do |model_name|
         model = "#{model_name}".camelize.constantize.new(attributes_for_model(model_name))
@@ -32,8 +33,6 @@ module ActiveForm
       end
       attributes
     end
-
-  private
 
     def models
       @models ||= []

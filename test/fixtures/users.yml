@@ -2,3 +2,4 @@ jim:
   id: 1
   name: Jim Morrison
   email: jim@example.com
+  calendar_token: <%= ::SecureRandom.hex %>

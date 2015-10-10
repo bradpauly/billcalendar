@@ -5,6 +5,7 @@ class CalendarController < ApplicationController
 
     respond_to do |format|
       format.ics { render mime_type: Mime::ICS }
+      format.text { render text: @calendar.to_ical, layout: false }
     end
   end
 end

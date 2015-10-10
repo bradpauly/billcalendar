@@ -9,6 +9,7 @@ class BillIcalendar
   def to_ical
     return if @start_date >= @end_date
 
+    @icalendar.prodid = "-//BillCalendar//BILLS"
     calendar_date = @start_date
     while(calendar_date <= @end_date) do
       @bills.each do |bill|
@@ -28,7 +29,7 @@ private
       e.dtend       = Icalendar::Values::Date.new(date_string)
       e.summary     = "#{bill.name} is due"
       e.description = "#{bill.name} is due"
-      e.ip_class    = "PRIVATE"
+      e.ip_class    = "PUBLIC"
     end
   end
 end

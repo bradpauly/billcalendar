@@ -23,11 +23,12 @@ class BillIcalendar
 private
   def add_bill_event(calendar, bill, date)
     calendar.event do |e|
-      date_string = "#{date.year}#{date.month.to_s.rjust(2, '0')}#{bill.due_day.to_s.rjust(2, '0')}"
-      e.dtstart   = Icalendar::Values::Date.new(date_string)
-      # e.dtend   = Icalendar::Values::Date.new("20050429")
-      e.summary   = "#{bill.name} is due"
-      e.ip_class  = "PRIVATE"
+      date_string   = "#{date.year}#{date.month.to_s.rjust(2, '0')}#{bill.due_day.to_s.rjust(2, '0')}"
+      e.dtstart     = Icalendar::Values::Date.new(date_string)
+      e.dtend       = Icalendar::Values::Date.new(date_string)
+      e.summary     = "#{bill.name} is due"
+      e.description = "#{bill.name} is due"
+      e.ip_class    = "PRIVATE"
     end
   end
 end

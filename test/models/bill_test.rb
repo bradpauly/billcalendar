@@ -6,4 +6,8 @@ class BillTest < ActiveSupport::TestCase
     assert_not Bill.new(due_day: '2').valid?
     assert Bill.new(name: 'Comcast', due_day: '5').valid?
   end
+
+  test "defaults auto_pay to false" do
+    assert_not Bill.new.auto_pay?
+  end
 end

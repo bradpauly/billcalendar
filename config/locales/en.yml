@@ -56,7 +56,6 @@ en:
       login_form:
         email: Email
         password: Password
-        remember_me: Remember me
       bill:
         auto_pay: This bill is paid automatically
     submit:

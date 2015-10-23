@@ -8,5 +8,7 @@ class CalendarControllerTest < ActionController::TestCase
     assert_response :success
     assert assigns(:calendar)
     assert assigns(:calendar).is_a?(BillIcalendar)
+    assert_match /BEGIN:VCALENDAR/, response.body
   end
+
 end

@@ -3,13 +3,13 @@
     <%= render partial: 'fields', locals: { form: form } %>
     <div class="row">
       <div class="two-thirds column">
-        <%= form.submit 'Save changes', class: "button-primary u-full-width" %>
+        <%= form.submit t('buttons.save'), class: "button-primary u-full-width" %>
       </div>
       <div class="one-third column">
-        <%= link_to 'Cancel', bills_url, class: "button u-full-width" %>
+        <%= link_to t('buttons.cancel'), bills_url, class: "button u-full-width" %>
       </div>
     </div>
   <% end %>
 
-  <%= button_to 'Delete this bill', bill_url(@bill), method: :delete, class: "button u-full-width" %>
+  <%= button_to t('buttons.bill.delete'), bill_url(@bill), method: :delete, class: "button u-full-width" %>
 </div>

@@ -3,15 +3,18 @@ rent:
   user_id: 1
   name: Rent
   due_day: 1
+  auto_pay: false
 
 comcast:
   id: 2
   user_id: 1
   name: Comcast
   due_day: 16
+  auto_pay: false
 
 att:
   id: 3
   user_id: 1
   name: AT&T
   due_day: 22
+  auto_pay: true

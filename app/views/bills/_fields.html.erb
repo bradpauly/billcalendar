@@ -1,20 +1,26 @@
-<%= form.label "Bill name" %>
-<%= form.text_field :name, class: "u-full-width", placeholder: "Rent, Cable, Health Insurance, etc." %>
+<%= form.label t('helpers.label.bill.name') %>
+<%= form.text_field :name, class: "u-full-width", placeholder: true %>
 <%= error_message_tag(@bill.errors[:name]) %>
 
-<%= form.label "Day of the month it is due" %>
+<%= form.label t('helpers.label.bill.due_day') %>
 <%= form.hidden_field :due_day %>
 
-<table class="u-full-width due_day">
-	<% 1.upto(4) do |w| %>
-		<tr>
-			<% 1.upto(7) do |d| %>
-				<% n = ((7 * w) - (7 - d)) %>
-				<td <%= 'class=selected' if @bill.due_day == n %>>
-					<%= link_to(n, '#') %>
-				</td>
-			<% end %>
-		</tr>
-	<% end %>
+<table class ="u-full-width due_day">
+  <% 1.upto(4) do |w| %>
+    <tr>
+      <% 1.upto(7) do |d| %>
+        <% n = ((7 * w) - (7 - d)) %>
+        <td <%= 'class=selected' if @bill.due_day == n %>>
+          <%= link_to(n, '#') %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
 </table>
+
 <%= error_message_tag(@bill.errors[:due_day]) %>
+
+<%= form.label :auto_pay do %>
+  <%= form.check_box :auto_pay %>
+  <%= t('helpers.label.bill.auto_pay') %>
+<% end %>

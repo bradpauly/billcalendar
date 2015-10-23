@@ -27,8 +27,8 @@ private
       date_string   = "#{date.year}#{date.month.to_s.rjust(2, '0')}#{bill.due_day.to_s.rjust(2, '0')}"
       e.dtstart     = Icalendar::Values::Date.new(date_string)
       e.dtend       = Icalendar::Values::Date.new(date_string)
-      e.summary     = "#{bill.name} is due"
-      e.description = "#{bill.name} is due"
+      e.summary     = bill.summary
+      e.description = bill.summary
       e.ip_class    = "PUBLIC"
     end
   end

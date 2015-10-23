@@ -10,4 +10,14 @@ class BillTest < ActiveSupport::TestCase
   test "defaults auto_pay to false" do
     assert_not Bill.new.auto_pay?
   end
+
+  test "summary reflects auto_pay off" do
+    bill = Bill.new(name: 'Comcast')
+    assert_equal "Comcast is due", bill.summary
+  end
+
+  test "summary reflects auto_pay on" do
+    bill = Bill.new(name: 'Comcast', auto_pay: true)
+    assert_equal "Comcast is auto paid", bill.summary
+  end
 end

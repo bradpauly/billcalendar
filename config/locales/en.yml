@@ -48,6 +48,8 @@ en:
         user_name: Jim Morrison
         user_email: hello@example.com
         passphrase_password: Mash the keyboard a few times
+      bill:
+        name: Rent, Cable, Health Insurance, etc.
     label:
       registration_form:
         user_name: Your name
@@ -56,7 +58,10 @@ en:
       login_form:
         email: Email
         password: Password
-        remember_me: Remember me yo
+      bill:
+        due_day: Day of the month it is due
+        auto_pay: This bill is paid automatically
+        name: Bill name
     submit:
       registration_form:
         create: Stop missing payments
@@ -68,6 +73,13 @@ en:
       failed: Sorry, that email & password combination didn't work.
 
   buttons:
+    cancel: Cancel
+    save: Save changes
+    add_to_calendar: Add to your calendar
+
     login:
       twitter: Log in with Twitter
       facebook: Log in with Facebook
+    bill:
+      delete: Delete this bill
+      new: Add a new bill

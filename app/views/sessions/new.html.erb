@@ -8,6 +8,7 @@
   <%= render partial: 'form' %>
 
   <p>You can also log in with Twitter or Google.</p>
-  <%= link_to 'Log in with Twitter', '/auth/twitter', class:'button u-full-width' %>
-  <%= link_to 'Log in with Google', '/auth/google', class:'button u-full-width' %>
+
+  <%= link_to t('buttons.login.twitter'), '/auth/twitter', class:'button u-full-width' %>
+  <%= link_to t('buttons.login.google'), '/auth/google', class:'button u-full-width' %>
 </div>

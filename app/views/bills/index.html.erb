@@ -7,6 +7,7 @@
         <tr>
           <th>Bill</th>
           <th>Due</th>
+          <th width="50">Auto?</th>
         </tr>
       </thead>
       <tbody>
@@ -21,6 +22,7 @@
           <tr>
             <td><%= link_to bill.name, edit_bill_url(bill) %></td>
             <td><%= bill.due_day.ordinalize %></td>
+            <td><%= '&#10004;'.html_safe if bill.auto_pay? %></td>
           </tr>
         <% end %>
       </tbody>

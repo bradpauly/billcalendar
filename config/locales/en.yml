@@ -56,7 +56,9 @@ en:
       login_form:
         email: Email
         password: Password
-        remember_me: Remember me yo
+        remember_me: Remember me
+      bill:
+        auto_pay: This bill is paid automatically
     submit:
       registration_form:
         create: Stop missing payments

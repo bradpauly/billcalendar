@@ -1,22 +1,11 @@
 class User < ActiveRecord::Base
   validates :name, presence: true
-  validates :email, presence: true
-  validates :email, uniqueness: true
-  validates :email, format: /@/
 
   has_many :external_authentications
-  has_many :passphrases
+  has_many :email_credentials
   has_many :bills
 
   before_create :generate_calendar_token
-
-  def authenticate(password)
-    if passphrases.last.try(:authenticate, password)
-      self
-    else
-      false
-    end
-  end
 
   def refresh_calendar_token
     generate_calendar_token

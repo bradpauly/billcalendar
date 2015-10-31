@@ -2,31 +2,39 @@
 
 <div class="row">
   <div class="one-half column">
-    <table class="u-full-width">
-      <thead>
-        <tr>
-          <th>Bill</th>
-          <th>Due</th>
-          <th width="50">Auto?</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @bills.each do |bill| %>
-          <% if bill.due_day > @today.day && !@future %>
-            <tr class="today">
-              <td>Today</td>
-              <td><%= @today.day.ordinalize %></td>
-            </tr>
-            <% @future = true %>
-          <% end %>
+
+    <% unless @bills.any? %>
+      <p>
+        <strong>Stop forgetting when your bills are due!</strong>
+        Add your first bill in 30 seconds with the button below.
+      </p>
+    <% else %>
+      <table class="u-full-width">
+        <thead>
           <tr>
-            <td><%= link_to bill.name, edit_bill_url(bill) %></td>
-            <td><%= bill.due_day.ordinalize %></td>
-            <td><%= '&#10004;'.html_safe if bill.auto_pay? %></td>
+            <th>Bill</th>
+            <th>Due</th>
+            <th width="50">Auto?</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          <% @bills.each do |bill| %>
+            <% if bill.due_day > @today.day && !@future %>
+              <tr class="today">
+                <td>Today</td>
+                <td><%= @today.day.ordinalize %></td>
+              </tr>
+              <% @future = true %>
+            <% end %>
+            <tr>
+              <td><%= link_to bill.name, edit_bill_url(bill) %></td>
+              <td><%= bill.due_day.ordinalize %></td>
+              <td><%= '&#10004;'.html_safe if bill.auto_pay? %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
 
     <%= link_to t('buttons.bill.new'), new_bill_url, class: "button button-primary u-full-width" %>
   </div>

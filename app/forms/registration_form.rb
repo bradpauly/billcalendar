@@ -1,10 +1,11 @@
 class RegistrationForm < ActiveForm::Form
-  accepts_attributes_for :user, :name, :email
-  accepts_attributes_for :passphrase, :password
+  accepts_attributes_for :user, :name
+  accepts_attributes_for :email_credential, :email, :password
 
-  within_save :associate_passphrase
+  within_save :associate_credentials
 
-  def associate_passphrase
-    passphrase.update_attribute(:user_id, user.id)
+  def associate_credentials
+    email_credential.update_attribute(:user_id, user.id)
+    user.update_attribute(:email, email_credential.email)
   end
 end

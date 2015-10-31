@@ -3,13 +3,13 @@
   <%= form.text_field :user_name, class: "u-full-width", placeholder: true %>
   <%= error_message_tag(@registration_form.errors[:user_name]) %>
 
-  <%= form.label :user_email %>
-  <%= form.text_field :user_email, class: "u-full-width", placeholder: true %>
-  <%= error_message_tag(@registration_form.errors[:user_email]) %>
+  <%= form.label :email_credential_email %>
+  <%= form.text_field :email_credential_email, class: "u-full-width", placeholder: true %>
+  <%= error_message_tag(@registration_form.errors[:email_credential_email]) %>
 
-  <%= form.label :passphrase_password %>
-  <%= form.password_field :passphrase_password, class: "u-full-width", placeholder: true %>
-  <%= error_message_tag(@registration_form.errors[:passphrase_password]) %>
+  <%= form.label :email_credential_password %>
+  <%= form.password_field :email_credential_password, class: "u-full-width", placeholder: true %>
+  <%= error_message_tag(@registration_form.errors[:email_credential_password]) %>
 
   <%= form.submit class: "button-primary u-full-width" %>
 <% end %>

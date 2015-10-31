@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023171208) do
+ActiveRecord::Schema.define(version: 20151031193628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,14 @@ ActiveRecord::Schema.define(version: 20151023171208) do
     t.boolean  "auto_pay",   default: false
   end
 
+  create_table "email_credentials", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "password_digest", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.string   "email"
+  end
+
   create_table "external_authentications", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "provider",   null: false
@@ -33,16 +41,9 @@ ActiveRecord::Schema.define(version: 20151023171208) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "passphrases", force: :cascade do |t|
-    t.integer  "user_id"
-    t.string   "password_digest", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string   "name",           null: false
-    t.string   "email",          null: false
+    t.string   "email"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
     t.string   "calendar_token"

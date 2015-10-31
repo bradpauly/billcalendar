@@ -40,7 +40,7 @@ module ActiveForm
 
     def validate_models
       models.each do |thing|
-        name = thing.class.name.downcase
+        name = thing.class.name.underscore
         unless thing.valid?
           thing.errors.messages.each do |k, v|
             v.each do |m|

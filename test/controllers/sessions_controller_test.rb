@@ -17,7 +17,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test "create renders login form with wrong password" do
-    jim = users(:jim)
+    jim = email_credentials(:jim)
     post :create, login_form: {email: jim.email, password: 'nope'}
 
     assert_response :success
@@ -25,7 +25,7 @@ class SessionsControllerTest < ActionController::TestCase
   end
 
   test "create renders login form with wrong email" do
-    jim = users(:jim)
+    jim = email_credentials(:jim)
     post :create, login_form: {email: 'notjim@example.com', password: 'testing'}
 
     assert_response :success
@@ -34,7 +34,7 @@ class SessionsControllerTest < ActionController::TestCase
 
 
   test "create redirects to bills on success" do
-    jim = users(:jim)
+    jim = email_credentials(:jim)
     post :create, login_form: {email: jim.email, password: 'testing'}
 
     assert_redirected_to bills_url

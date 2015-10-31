@@ -27,14 +27,14 @@ en:
           attributes:
             name:
               blank: Please enter your name
+        email_credential:
+          attributes:
             email:
               blank: An email address is required
               taken: Email is already registered
               invalid: "Email must contain an '@' i.e.: pat@example.com"
-        passphrase:
-          attributes:
             password:
-                blank: Please enter a password
+              blank: Please enter a password
         bill:
           attributes:
             name:
@@ -46,15 +46,15 @@ en:
     placeholder:
       registration_form:
         user_name: Jim Morrison
-        user_email: hello@example.com
-        passphrase_password: Mash the keyboard a few times
+        email_credential_email: hello@example.com
+        email_credential_password: Mash the keyboard a few times
       bill:
         name: Rent, Cable, Health Insurance, etc.
     label:
       registration_form:
         user_name: Your name
-        user_email: Email
-        passphrase_password: Password
+        email_credential_email: Email
+        email_credential_password: Password
       login_form:
         email: Email
         password: Password
